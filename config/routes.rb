@@ -1,12 +1,15 @@
 SampleApp::Application.routes.draw do
+  get "users/new"
+  
   # match '/..' and routes it to the corresponding action in the pages controller.
   # also automatically creates named routes for use in the controllers and views:
-  # about_path => '/about'
+  # about_path => '/about' for example
   # about_url  => 'http://localhost:3000/about'
 
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
   match '/help', :to => 'pages#help'
+  match 'signup', :to => 'users#new'
   
   root :to => 'pages#home'
   
