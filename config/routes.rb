@@ -1,9 +1,20 @@
 SampleApp::Application.routes.draw do
-  get "pages/home"
+  # match '/..' and routes it to the corresponding action in the pages controller.
+  # also automatically creates named routes for use in the controllers and views:
+  # about_path => '/about'
+  # about_url  => 'http://localhost:3000/about'
 
-  get "pages/contact"
+  match '/contact', :to => 'pages#contact'
+  match '/about', :to => 'pages#about'
+  match '/help', :to => 'pages#help'
   
-  get "pages/about"
+  root :to => 'pages#home'
+  
+  #get "pages/home"
+  #
+  #get "pages/contact"
+  #
+  #get "pages/about"      
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
